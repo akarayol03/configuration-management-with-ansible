@@ -8,7 +8,7 @@
       package:
         name: "{{item}}"
         state: present
-      with items:
+      with_items:
         - telnet
         - lftp
         - firewald
