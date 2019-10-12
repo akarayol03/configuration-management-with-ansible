@@ -11,4 +11,12 @@
     - name: Start apache
       systemd:
         name: httpd
-        state: restarted     
+        state: restarted
+    - name: install firewalld
+      yum:
+        name: firewalld
+        state: latest
+    - name: install telnet
+      yum:
+        name: telnet
+        state: latest      
