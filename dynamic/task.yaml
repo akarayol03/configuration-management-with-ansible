@@ -31,3 +31,8 @@
         create_home: yes
         expires: 1422403387
         generate_ssh_key: yes
+    - name: Install lftp
+      package:
+        name: lftp
+        state: present
+      
