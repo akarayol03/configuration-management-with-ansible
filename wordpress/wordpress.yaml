@@ -82,7 +82,7 @@
 
     - name: copy copysrc.yaml file as wp-config.php
       template:
-        src: ./copysrc.yaml
+        src: ./wp-config.j2
         dest: /var/www/html/wp-config.php
 
       notify: 
