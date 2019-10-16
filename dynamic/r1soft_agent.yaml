@@ -23,10 +23,10 @@
         state: restarted
 
     - name: Stop firewalld
-       systemd:
-         name: firewalld
-         state: stopped
-         enabled: false
+      systemd:
+        name: firewalld
+        state: stopped
+        enabled: false
         
     
     
