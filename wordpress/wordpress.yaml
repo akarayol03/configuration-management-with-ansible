@@ -1,0 +1,97 @@
+---
+- name: install wordpress website
+  hosts: all
+  become: yes
+  become_method: sudo
+  vars:
+    ahmet_db_user: akarayol03
+    ahmet_db_password: 2296352asD
+    ahmet_wordpress_db: ahmet_db
+  tasks:
+    - name: install multiple packages
+      package:
+        name: "{{item}}"
+        state: latest
+      with_items:
+        - httpd
+        - mariadb
+        - mariadb-server
+        - php
+        - php-mysql
+        - php-gd
+        - MySQL-python
+        - git-all
+        - python-devel
+        - unzip
+        - rsync
+    
+    - name: start apache
+      service:
+        name:"{{item}}"
+        state: restarted
+      with_items:
+        - httpd
+
+
+
+    - name: start and enable MariaDB
+      service: 
+        name: "{{item}}"
+        state: started
+        enabled: yes 
+      with_items:
+        - mariadb
+
+    - name: create MySQL user 
+      mysql_user:
+        user: '{{ahmet_db_user}}'
+        password: '{{ahmet_db_password}}'
+        priv: '*.*:ALL,GRANT'
+        state: present
+
+    - name: create db for wordpress
+      mysq_db:
+        name: '{{ahmet_wordpress_db}}'
+        state: present
+
+    - name: Reload Privileges
+      command: 'mysql -ne "{{item}}"'
+      with_items:
+        - FLUSH PRIVELEGES
+      changed_when: false
+
+
+    - name: download wordpress
+      get_url:
+        url: https://wordpress.org/wordpress-5.1.1.zip
+        dest: /tmp/wordpress.zip
+
+    - name: unzip wordpress
+      unarchive:
+        src: /tmp/wordpress.zip
+        dest: /tmp/
+        copy: no
+
+    - name: copy files within /tmp/wordpress to /var/ww/html
+      copy:
+        src: /tmp/wordpress/
+        dest: /var/www/html
+        owner: apache
+        group: apache
+        remote_src: yes
+
+    - name: copy copysrc.yaml file as wp-config.php
+      template:
+        src: ./copysrc.yaml
+        dest: /var/www/html/wp-config.php
+
+      notify: 
+        - restart my apache
+    
+  handlers:
+    - name: restart my apache
+      service: name=httpd state=restarted
+
+    
+
+    
