@@ -1,12 +1,12 @@
 ---
 - name: install wordpress website
   hosts: all
-  become: yes
-  become_method: sudo
   vars:
     ahmet_db_user: akarayol03
     ahmet_db_password: 2296352asD
     ahmet_wordpress_db: ahmet_db
+  become: yes
+  become_method: sudo
   tasks:
     - name: install multiple packages
       package:
