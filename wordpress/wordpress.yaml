@@ -2,7 +2,7 @@
 - name: install wordpress website
   hosts: all
   vars:
-    ahmet_db_user: akarayol03
+    ahmet_db_user: ahmet
     ahmet_db_password: 2296352asD
     ahmet_wordpress_db: ahmet_db
   become: yes
