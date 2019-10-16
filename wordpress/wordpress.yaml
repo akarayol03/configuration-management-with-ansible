@@ -27,7 +27,7 @@
     
     - name: start apache
       service:
-        name:"{{item}}"
+        name: "{{item}}"
         state: restarted
       with_items:
         - httpd
