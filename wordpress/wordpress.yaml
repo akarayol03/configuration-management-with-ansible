@@ -57,7 +57,7 @@
     - name: Reload Privileges
       command: 'mysql -ne "{{item}}"'
       with_items:
-        - FLUSH PRIVELEGES
+        - FLUSH PRIVILEGES
       changed_when: false
 
 
