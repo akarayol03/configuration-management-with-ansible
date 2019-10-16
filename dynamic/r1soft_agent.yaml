@@ -11,8 +11,8 @@
 
     - name: Install agent
       package:
-      name: serverbackup-enterprise-agent
-      state: present
+        name: serverbackup-enterprise-agent
+        state: present
 
     - name: Get Key
       shell: "r1soft-setup --get-key http://63.32.58.214:8080"
