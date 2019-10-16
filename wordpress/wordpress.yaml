@@ -49,8 +49,8 @@
         priv: '*.*:ALL,GRANT'
         state: present
 
-    - name: create db for wordpress
-      mysq_db:
+    - name: create db for Wordpress
+      mysql_db:
         name: '{{ahmet_wordpress_db}}'
         state: present
 
