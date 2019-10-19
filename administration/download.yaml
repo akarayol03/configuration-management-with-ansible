@@ -1,0 +1,11 @@
+---
+- name: Playbook for Downloading link
+  hosts: "{{host}}"
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Download file
+      get_url:
+        url: "{{ url }}"
+        dest: /tmp
+      
