@@ -4,25 +4,25 @@
   become: yes
   become_method: sudo
   tasks:
-    - name: stop apacheservice1
+    - name: stop service1
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service1}}"
         state: stopped
       ignore_erros: true
-    - name: stop apacheservice2
+    - name: stop service2
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service2}}"
         state: stopped
       ignore_erros: true
-    - name: stop apacheservice3
+    - name: stop service3
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service3}}"
         state: stopped
       ignore_erros: true
-    - name: stop apacheservice4
+    - name: stop service4
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "7"
       systemd:
         name: "{{service4}}"
@@ -30,25 +30,25 @@
       ignore_erros: true
 
 
-    - name: stop apacheservice1
+    - name: stop service1
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service1}}"
         state: stopped
       ignore_erros: true
-    - name: stop apacheservice2
+    - name: stop service2
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service2}}"
         state: stopped
       ignore_erros: true
-    - name: stop apacheservice3
+    - name: stop service3
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service3}}"
         state: stopped
       ignore_erros: true
-    - name: stop apacheservice4
+    - name: stop service4
       when: ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6"
       service:
         name: "{{service4}}"
