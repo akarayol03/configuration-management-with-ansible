@@ -5,7 +5,7 @@
   become_method: sudo
   tasks:
     - name: register
-     shell: uname -r
+      shell: uname -r
      register: message
     - name: Debug
      debug:
@@ -25,8 +25,8 @@
         timeout: 300 
 
     - name: register
-     shell: uname -r
-     register: message
+      shell: uname -r
+      register: message
 
     - name: Debug
      debug:
