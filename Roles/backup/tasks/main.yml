@@ -12,6 +12,7 @@
 
 - name: Get Key
   shell: "r1soft-setup --get-key http://63.32.58.214:8080"
+  ignore_errors: true
 
 - name: Start agent
   systemd:
