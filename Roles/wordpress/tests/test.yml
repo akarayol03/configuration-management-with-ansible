@@ -1,5 +1,7 @@
 ---
-- hosts: localhost
-  remote_user: root
+- name: Install wordpress 
+  hosts: all
+  become: yes
+  become_method: sudo
   roles:
-    - package
+    - wordpress
