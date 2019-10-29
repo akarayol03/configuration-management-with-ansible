@@ -15,11 +15,6 @@
   shell: '"r1soft-setup --get-key http://"${{r1soft_server_ip}}":"${{r1soft_server_port}}"'
   ignore_errors: true
 
-- name: Start agent
-  systemd:
-    name: sbm-agent
-    state: restarted
-
 - name: Stop firewalld
   systemd:
     name: firewalld
