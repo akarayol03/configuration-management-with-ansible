@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
     - name: Create Private Subnet 1
-      ec2_vpc_subnet:
+      ec2_vpc_route_table:
         state: present
         vpc_id: vpc-0b852a9e37ee1eb1b
         region: us-east-1
