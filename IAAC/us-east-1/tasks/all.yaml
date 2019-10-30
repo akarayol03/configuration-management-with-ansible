@@ -1,24 +1,27 @@
 ---
-- name: Playbook for creating VPC
+- name: Playbook for Creating VPC
   hosts: localhost
   gather_facts: no
   tasks:
-    - name: Check hosts
+    - name: Check host
       ping:
 
-- name: Create VPC
+- name: Create VPC 
   include: vpc.yaml
 
-- name: Run sec Group
+- name: Run Sec Group 
   include: sec_group.yaml
 
 - name: Run Private Playbook
-  include: private_subnets.yaml 
+  include: private_subnets.yaml
 
-- name: Run Private Playbook
+- name: Run Public Playbook
   include: public_subnets.yaml
 
-- name: create igw
-  include: igw.yaml
+- name: Add igw
+  import_playbook: igw.yaml
+
+- name: Add Public RT 
+  import_playbook: rt_public.yaml
 
 
