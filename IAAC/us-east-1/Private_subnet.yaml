@@ -7,7 +7,7 @@
         state: present
         vpc_id: vpc-0b852a9e37ee1eb1b
         region: us-east-1
-        cidr: 10.0.1.16/28
+        cidr: 10.0.104.0/24
         resource_tags:
           Name: Database Subnet1
       register: database_subnet1
@@ -17,7 +17,7 @@
         state: present
         vpc_id: vpc-0b852a9e37ee1eb1b
         region: us-east-1
-        cidr: 10.0.1.16/28
+        cidr: 10.0.105.0/24
         resource_tags:
           Name: Database Subnet2
       register: database_subnet2
@@ -27,7 +27,7 @@
         state: present
         vpc_id: vpc-0b852a9e37ee1eb1b
         region: us-east-1
-        cidr: 10.0.1.16/28
+        cidr: 10.0.106.0/24
         resource_tags:
           Name: Database Subnet3
       register: database_subnet3
