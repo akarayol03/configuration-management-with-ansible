@@ -1,33 +1,17 @@
 ---
-- name: Playbook for Subnets
+- name: Playbook for Route table for  Private
   hosts: localhost
   tasks:
-    - name: Create Private Subnet 1
+    - name: Set up private subnet route table
       ec2_vpc_route_table:
-        state: present
-        vpc_id: vpc-0b852a9e37ee1eb1b
+        vpc_id: vpc-03397932ec4cfdbce
         region: us-east-1
-        cidr: 10.0.1.0/24
-        resource_tags:
-          Name: Database Subnet1
-      register: database_subnet1
-
-    - name: Create Private Subnet 2
-      ec2_vpc_subnet:
-        state: present
-        vpc_id: vpc-0b852a9e37ee1eb1b
-        region: us-east-1
-        cidr: 10.0.2.0/24
-        resource_tags:
-          Name: Database Subnet2
-      register: database_subnet2
-
-    - name: Create Private Subnet 3
-      ec2_vpc_subnet:
-        state: present
-        vpc_id: vpc-0b852a9e37ee1eb1b
-        region: us-east-1
-        cidr: 10.0.3.0/24
-        resource_tags:
-          Name: Database Subnet3
-      register: database_subnet3
+      tags:
+        Name: private
+      subnets:
+      - subnet-0b1f0db7b921f14b9
+      - subnet-090f0cba555b8e0b8
+      - subnet-03122eddcbc81e410
+      routes:
+        - dest: 10.0.0.0/16
+      register: private_route_table
