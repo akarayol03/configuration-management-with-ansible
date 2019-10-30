@@ -1,0 +1,28 @@
+
+---
+- name: Playbook for provisioning
+  hosts: localhost
+  gather_facts: no
+  tasks: 
+    - name: create launch config
+      ec2_lc:
+        name: my_new_lc
+        image_id: ami-02eac2c0129f6376b
+        key_name: mykey
+        region: us-east-1
+        security_groups: sg-23423
+        instance_type: m1.small
+        assign_public_ip: yes
+
+
+    - name: ASG
+      ec2_asg:
+      launch_config_name: my_new_lc
+      health_check_period: 60
+      health_check_type: ELB
+      replace_all_instances: yes
+      min_size: 5
+      max_size: 5
+      desired_capacity: 5
+      vpc_zone_identifier: [ 'subnet-abcd1234', 'subnet-1a2b3c4d' ]
+      region: us-east-1

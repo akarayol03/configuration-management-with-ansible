@@ -27,3 +27,8 @@
 - name: Add Private RT 
   import_playbook: rt_private.yaml
 
+- name: Run ASG
+  import_playbook: asg.yaml
+
+- name: added ELB 
+  import_playbook: elb.yaml

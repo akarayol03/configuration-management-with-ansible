@@ -1,7 +1,7 @@
 ---
 - name: Playbook for Route table
   hosts: localhost
-  gather_fact: no
+  gather_facts: no
   tasks:
     - name: Set up public subnet route table
       ec2_vpc_route_table:
