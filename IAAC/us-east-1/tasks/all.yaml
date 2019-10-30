@@ -1,6 +1,7 @@
 ---
 - name: Playbook for creating VPC
   hosts: localhost
+  gather_facts: no
   tasks:
     - name: Check hosts
       ping:
@@ -16,5 +17,8 @@
 
 - name: Run Private Playbook
   include: public_subnets.yaml
+
+- name: create igw
+  include: igw.yaml
 
 
