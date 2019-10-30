@@ -1,6 +1,7 @@
 ---
 - name: Playbook for provisioning
   hosts: localhost
+  gather_fact: no
   connection: local
   gather_facts: false
   become: false
