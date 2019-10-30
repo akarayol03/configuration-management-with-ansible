@@ -1,0 +1,30 @@
+---
+- name: Playbook for secgroups
+  hosts: localhost
+  tasks:
+    - name: Create private subnet 1
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: vpc-0b852a9e37ee1eb1b
+        cidr: 10.0.1.16/28
+        resource_tags:
+          Name: Database Subnet1
+      register: database_subnet1
+
+    - name: Create private subnet 2
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: vpc-0b852a9e37ee1eb1b
+        cidr: 10.0.1.16/28
+        resource_tags:
+          Name: Database Subnet2
+      register: database_subnet2
+
+    - name: Create private subnet 3
+      ec2_vpc_subnet:
+        state: present
+        vpc_id: vpc-0b852a9e37ee1eb1b
+        cidr: 10.0.1.16/28
+        resource_tags:
+          Name: Database Subnet3
+      register: database_subnet3

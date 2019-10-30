@@ -4,9 +4,9 @@
   tasks:
     - name: Create sec group1
       ec2_group:
-        name: SecGroup
-        description: Sec Group 1
-        vpc_id: vpc-ebd1ac91
+        name: SecGroupforVPC
+        description: Sec Group 1 for VPC
+        vpc_id: vpc-ebd1ac91vpc-0b852a9e37ee1eb1b
         region: us-east-1
         rules:
           - proto: tcp
