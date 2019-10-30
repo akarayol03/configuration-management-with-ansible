@@ -4,7 +4,7 @@
   package: 
     name: "{{item}}"
     state: latest
-    with_items:
+  with_items:
       - wget
       - unzip
       - php-gd
