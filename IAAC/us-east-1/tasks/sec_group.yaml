@@ -3,7 +3,6 @@
   hosts: localhost
   gather_fact: no
   tasks:
-
     - name: Collect VPC info
       ec2_vpc-net_facts:
         region: us-east-1
