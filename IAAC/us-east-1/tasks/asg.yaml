@@ -10,7 +10,7 @@
         image_id: ami-02eac2c0129f6376b
         key_name: mykey
         region: us-east-1
-        security_groups: sg-23423
+        security_groups: "{{SecGroup.group_id}}"
         instance_type: m1.small
         assign_public_ip: yes
 
@@ -24,5 +24,5 @@
       min_size: 5
       max_size: 5
       desired_capacity: 5
-      vpc_zone_identifier: [ 'subnet-abcd1234', 'subnet-1a2b3c4d' ]
+      vpc_zone_identifier: [ "{{Web_subnet1.subnet.id}}", "{{Web_subnet2.subnet.id}}", "{{Web_subnet3.subnet.id}}" ]
       region: us-east-1
