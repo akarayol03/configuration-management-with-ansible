@@ -3,9 +3,16 @@
   hosts: localhost
   gather_fact: no
   tasks:
+    - name: Collect VPC info
+      ec2_vpc-net_facts:
+        region: us-east-1
+        filters:
+          "tag:Task": VPC
+      register: VPC1
+
     - name: create IGW
       ec2_vpc_igw:
         region: us-east-1
-        vpc_id: vpc-0b852a9e37ee1eb1b
+        vpc_id: "{{VPC1.vpcs[.vpc_id]}}"
         state: present
       register: igw
