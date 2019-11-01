@@ -9,8 +9,8 @@
         name: 'NewELB'
         security_group_ids: 'sg-123456, sg-67890'
         region: us-west-2
-        subnets: 'subnet-123456,subnet-67890'
-        security_group_ids: 
+        subnets: "{{Web_subnet1.subnet.id}}"
+        security_group_ids: "{{SecGroup.group_id}}"
         purge_subnets: yes
         listeners:
           - protocol: http
